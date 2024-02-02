@@ -7,21 +7,49 @@ app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 const products = [
-  { id: 1, name: 'Advil', price: 10 },
-  { id: 2, name: 'Bioflu', price: 10 },
-  { id: 2, name: 'Biogesic', price: 5 },
-  { id: 2, name: 'Bonamine', price: 20 },
-  { id: 2, name: 'Calcium Cee', price: 15 },
-  { id: 2, name: 'Calvit', price: 10 },
-  { id: 2, name: 'Cetirizine', price: 15 },
-  { id: 1, name: 'Cherifer', price: 10 },
-  { id: 2, name: 'Folicard', price: 20 },
-  { id: 2, name: 'Gaviscon', price: 10 },
-  { id: 2, name: 'Kremil-S', price: 20 },
-  { id: 2, name: 'Medicol', price: 20 },
-  { id: 2, name: 'Moriamin', price: 10 },
-  { id: 2, name: 'Potencee', price: 15 },
-  { id: 2, name: 'Salonpas', price: 15 },
+  { 
+    id: 1, 
+    name: 'Advil', 
+    price: 10,  
+    stock: 100,
+    imageSrc: '../meddispense/src/assets/advil.png'
+  },
+  { 
+    id: 2, 
+    name: 'Bioflu', 
+    price: 10, 
+    stock: 100,
+    imageSrc: '../meddispense/src/assets/bioflu.png'
+  },
+  { 
+    id: 3, 
+    name: 'Biogesic', 
+    price: 5, 
+    stock: 100,
+    imageSrc: '../meddispense/src/assets/biogesic.png'
+  },
+  { 
+    id: 4, 
+    name: 'Bonamine', 
+    price: 20, 
+    stock: 100,
+  },
+  { 
+    id: 2, 
+    name: 'Calcium Cee', 
+    price: 15, 
+    stock: 100,
+  },
+  // { id: 2, name: 'Calvit', price: 10 },
+  // { id: 2, name: 'Cetirizine', price: 15 },
+  // { id: 1, name: 'Cherifer', price: 10 },
+  // { id: 2, name: 'Folicard', price: 20 },
+  // { id: 2, name: 'Gaviscon', price: 10 },
+  // { id: 2, name: 'Kremil-S', price: 20 },
+  // { id: 2, name: 'Medicol', price: 20 },
+  // { id: 2, name: 'Moriamin', price: 10 },
+  // { id: 2, name: 'Potencee', price: 15 },
+  // { id: 2, name: 'Salonpas', price: 15 },
 ];
 
 app.get('/products', (req, res) => {

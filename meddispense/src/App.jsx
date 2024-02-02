@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import NavBar from './components/NavBar';
 import ProductButton from './components/ProductButton';
 import QuantityCounter from './components/QuantityCounter';
 import TotalAmountDue from './components/TotalAmountDue';
@@ -22,22 +23,25 @@ function App() {
   };
 
   return (
-    <div>
-      {/* Render Product Buttons dynamically */}
-      {products.map(product => (
-        <ProductButton
-          key={product.id}
-          onClick={() => handleProductClick(product.price)}
-          productName={product.name}
-        />
-      ))}
+    <>
+      <NavBar />
+      <div>
+        {/* Render Product Buttons dynamically */}
+        {products.map(product => (
+          <ProductButton
+            key={product.id}
+            onClick={() => handleProductClick(product.price)}
+            productName={product.name}
+          />
+        ))}
 
-      {/* Quantity Counter */}
-      <QuantityCounter quantity={quantity} />
+        {/* Quantity Counter */}
+        <QuantityCounter quantity={quantity} />
 
-      {/* Total Amount Due */}
-      <TotalAmountDue totalAmount={totalAmount} />
-    </div>
+        {/* Total Amount Due */}
+        <TotalAmountDue totalAmount={totalAmount} />
+      </div>
+      </>
   );
 }
 export default App;
