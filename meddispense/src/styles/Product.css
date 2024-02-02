@@ -1,44 +1,53 @@
-/* Add this to your styles */
+/* Product.css */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 16px;
-  max-width: 200px;
+  text-align: center;
+  width: 30%;
+  flex: 0 0 calc(30% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a card-like effect */
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease; /* Add a smooth transition for hover effect */
+}
+
+.product:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
 }
 
 .product-image {
   max-width: 100%;
   height: auto;
-}
-
-.product-details {
-  text-align: center;
-  margin-top: 8px;
+  max-height: 250px;
 }
 
 .product-name {
   font-size: 1.2em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .product-price {
-  color: #888;
+  font-weight: bold;
 }
 
 .buy-button {
-  background-color: #ff9900;
+  background-color: #4caf50;
   color: white;
-  padding: 8px 12px;
+  padding: 10px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .buy-button:hover {
-  background-color: #e68a00;
+  background-color: #45a049;
 }

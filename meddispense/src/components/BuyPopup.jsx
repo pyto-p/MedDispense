@@ -3,12 +3,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/BuyPopup.css';
 
-const BuyPopup = ({ selectedQuantity, maxQuantity, onQuantityChange, onCancel }) => {
+const BuyPopup = ({ selectedQuantity, maxQuantity, onQuantityChange, onCancel, productPrice, productName, productImage }) => {
   const navigate = useNavigate();
 
   const handleProceedToCheckout = () => {
-    // You can pass any necessary data to the payment page through state or URL parameters
-    navigate('/payment', { state: { selectedQuantity } });
+    // Pass data to the payment page
+    navigate('/payment', {
+      state: {
+        productDetails: {
+          image: productImage,
+          name: productName,
+          quantity: selectedQuantity,
+          totalPrice: selectedQuantity * productPrice,
+        },
+      },
+    });
   };
 
   return (
@@ -22,7 +31,15 @@ const BuyPopup = ({ selectedQuantity, maxQuantity, onQuantityChange, onCancel })
         max={maxQuantity}
         onChange={(e) => onQuantityChange(Number(e.target.value))}
       />
-      <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+
+      {/* Show Total Amount Due and Proceed to Checkout */}
+      {selectedQuantity !== null && (
+        <div>
+          <p>Total Amount Due: ${selectedQuantity * productPrice}</p>
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+        </div>
+      )}
+
       <button onClick={onCancel}>Cancel</button>
     </div>
   );
