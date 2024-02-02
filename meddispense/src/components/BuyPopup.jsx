@@ -1,8 +1,16 @@
-// BuyPopup.js
+// BuyPopup.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/BuyPopup.css';
 
-function BuyPopup({ selectedQuantity, maxQuantity, onQuantityChange, onConfirm, onCancel }) {
+const BuyPopup = ({ selectedQuantity, maxQuantity, onQuantityChange, onCancel }) => {
+  const navigate = useNavigate();
+
+  const handleProceedToCheckout = () => {
+    // You can pass any necessary data to the payment page through state or URL parameters
+    navigate('/payment', { state: { selectedQuantity } });
+  };
+
   return (
     <div className="buy-popup">
       <h3>Select Quantity</h3>
@@ -14,10 +22,10 @@ function BuyPopup({ selectedQuantity, maxQuantity, onQuantityChange, onConfirm, 
         max={maxQuantity}
         onChange={(e) => onQuantityChange(Number(e.target.value))}
       />
-      <button onClick={onConfirm}>Confirm</button>
+      <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
       <button onClick={onCancel}>Cancel</button>
     </div>
   );
-}
+};
 
 export default BuyPopup;

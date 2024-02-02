@@ -36,7 +36,7 @@ const products = [
     stock: 100,
   },
   { 
-    id: 2, 
+    id: 5, 
     name: 'Calcium Cee', 
     price: 15, 
     stock: 100,
