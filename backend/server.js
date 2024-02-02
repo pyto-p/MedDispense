@@ -12,21 +12,22 @@ const products = [
     name: 'Advil', 
     price: 10,  
     stock: 100,
-    imageSrc: '../meddispense/src/assets/advil.png'
+    imageSrc: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rosepharmacy.com%2Fph1%2Fwp-content%2Fuploads%2F2016%2F10%2F62550.png&f=1&nofb=1&ipt=1bb046188e25f81361e5d129a185d2a3a9b18fce6e54fe6a246c4a7215624af1&ipo=images'
+    
   },
   { 
     id: 2, 
     name: 'Bioflu', 
     price: 10, 
     stock: 100,
-    imageSrc: '../meddispense/src/assets/bioflu.png'
+    imageSrc: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rosepharmacy.com%2Fph1%2Fwp-content%2Fuploads%2F2016%2F09%2F37219.png&f=1&nofb=1&ipt=6821964f8e96fd634e95e19b147327d306bf19a0598235db295ecc2c6e23e1b9&ipo=images'
   },
   { 
     id: 3, 
     name: 'Biogesic', 
     price: 5, 
     stock: 100,
-    imageSrc: '../meddispense/src/assets/biogesic.png'
+    imageSrc: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rosepharmacy.com%2Fph1%2Fwp-content%2Fuploads%2F2016%2F09%2F29773-2.png&f=1&nofb=1&ipt=c242ab4725438d2bf11365f48cfc42c3a374b78e19a4c6ef9eb304d9142d261c&ipo=images'
   },
   { 
     id: 4, 
