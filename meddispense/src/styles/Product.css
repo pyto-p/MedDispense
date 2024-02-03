@@ -19,6 +19,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.214); /* Add box shadow for a card-like effect */
   box-sizing: border-box;
   transition: box-shadow 0.3s ease; /* Add a smooth transition for hover effect */
+  font-family: 'Inter', sans-serif;
 }
 
 .product:hover {

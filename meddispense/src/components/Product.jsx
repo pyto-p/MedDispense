@@ -44,7 +44,7 @@ const Product = ({ id, name, price, stock, imageSrc, onClick }) => {
       {showPopup && (
         <BuyPopup
           selectedQuantity={selectedQuantity}
-          maxQuantity={Math.min(localStock, 20)}
+          maxQuantity={Math.min(localStock, 5)}
           onQuantityChange={setSelectedQuantity}
           onBuyConfirmed={handleConfirmBuy}
           onCancel={handleCancelBuy}

@@ -52,7 +52,7 @@ const PaymentPage = () => {
   };
 
   const calculateChangeDenominations = (amount) => {
-    const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 1];
+    const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 1]; //470 
     const result = {};
 
     denominations.forEach((denomination) => {
