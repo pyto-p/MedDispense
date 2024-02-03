@@ -1,8 +1,8 @@
 
 .head{
-  background: linear-gradient(to top right, #157145, rgb(85, 201, 149));
+  background: #157145;
   padding: 40px;
-  border-radius: 15px;
+  border-radius: 15px 15px 0px 0px;
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
   text-shadow: 

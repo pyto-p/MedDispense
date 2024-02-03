@@ -1,18 +1,38 @@
 /* paymentPageStyles.css */
 .payment-page {
-  max-width: 800px;
-  margin: auto;
   padding: 20px;
+  background-color: #D1E2C4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #31352E;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+}
+
+.payment-text {
+ font-size: 40px;
 }
 
 .payment-details {
   display: flex;
+  border-radius: 15px;
+  justify-content: center;
   align-items: center;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  background-color: #EBEBE8;
+  padding-right: 30px;
+  width: 600px;
 }
 
 .payment-details img {
-  max-width: 100px;
-  margin-right: 20px;
+  max-width: 300px;
+  margin-right: 40px;
+}
+
+.payment-details p {
+  font-size: 20px;
 }
 
 .payment-form {
@@ -44,4 +64,13 @@
 
 .change-info {
   margin-top: 20px;
+}
+
+.payment-title {
+  color: #778A35;
+  margin-right: 5px;
+}
+
+p {
+  font-weight: bold;
 }

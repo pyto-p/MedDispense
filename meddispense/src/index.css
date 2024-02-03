@@ -1,0 +1,53 @@
+/* Add these styles in your CSS file or style block */
+.dropdown-container {
+  width: 200px;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.main {
+  background-color: #D1E2C4  ;
+  padding: 40px;
+  border-radius: 0px 0px 15px 15px;
+  
+}
+.dropdown-main {
+  display: flex;
+  gap: 20px;
+  padding-left: 25px;
+}
+
+.label {
+  font-size: 18px;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+.button-dropdown-container {
+  position: relative;
+}
+
+.button-dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px; /* Adjust for round shape */
+  margin-bottom: 16px;
+  color: #555;
+  background-color: #f8f8f8;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.button-dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

@@ -6,16 +6,17 @@
 }
 
 .product {
+  background-color: white;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 30%;
-  flex: 0 0 calc(30% - 20px);
+  flex: 0 0 calc(25% - 50px);
   margin: 10px;
   padding: 20px;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a card-like effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.214); /* Add box shadow for a card-like effect */
   box-sizing: border-box;
   transition: box-shadow 0.3s ease; /* Add a smooth transition for hover effect */
 }
@@ -45,7 +46,8 @@
   padding: 10px;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 100px;
+  border-radius: 15px;
 }
 
 .buy-button:hover {

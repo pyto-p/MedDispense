@@ -1,8 +1,9 @@
-// PaymentPage.jsx
+// PaymentPage.js
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/PaymentPage.css';
+import ChangePopup from './ChangePopup'; // Import the ChangePopup component
 import Payment from './Payment';
 
 const PaymentPage = () => {
@@ -12,6 +13,7 @@ const PaymentPage = () => {
   const [paidAmount, setPaidAmount] = useState('');
   const [change, setChange] = useState(null);
   const [changeDenominations, setChangeDenominations] = useState(null);
+  const [isChangePopupOpen, setIsChangePopupOpen] = useState(false); // New state for controlling the ChangePopup visibility
 
   // Extract data passed from BuyPopup
   const { productDetails } = location.state || { productDetails: null };
@@ -43,11 +45,14 @@ const PaymentPage = () => {
       // Calculate the most efficient combination of denominations
       const denominations = calculateChangeDenominations(remainingAmount);
       setChangeDenominations(denominations);
+
+      // Open the ChangePopup
+      setIsChangePopupOpen(true);
     }
   };
 
   const calculateChangeDenominations = (amount) => {
-    const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+    const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 1];
     const result = {};
 
     denominations.forEach((denomination) => {
@@ -76,38 +81,35 @@ const PaymentPage = () => {
     }
   };
 
+  const handleCloseChangePopup = () => {
+    // Close the ChangePopup
+    setIsChangePopupOpen(false);
+  };
+
   return (
     <div className="payment-page">
-      <h2>Payment Page</h2>
-      {productDetails && (
-        <div className="payment-details">
-          <img src={productDetails.image} alt="" />
-          <div>
-            <p>Product: {productDetails.name}</p>
-            <p>Quantity: {productDetails.quantity}</p>
-            <p>Total Price: ${productDetails.totalPrice}</p>
+      <h2 className="payment-text">Checkout</h2>
+      <div className="checkout-main">
+        {productDetails && (
+          <div className="payment-details">
+            <img src={productDetails.image} alt="" />
+            <div>
+              <p><span className='payment-title'>Product:</span> {productDetails.name}</p>
+              <p><span className='payment-title'>Quantity:</span> {productDetails.quantity}</p>
+              <p><span className='payment-title'>Total Price: PHP</span> {productDetails.totalPrice}</p>
+            </div>
           </div>
-        </div>
-      )}
-
-      <hr />
-
-      <Payment totalAmount={productDetails.totalPrice} onPaymentSubmit={handlePayment} />
+        )}
+        <Payment totalAmount={productDetails.totalPrice} onPaymentSubmit={handlePayment} />
+      </div>
 
       {change !== null && (
-        <div className="change-info">
-          <p>Change: ${change}</p>
-          {changeDenominations && (
-            <div>
-              <p>Change Breakdown:</p>
-              <ul>
-                {Object.entries(changeDenominations).map(([denomination, count]) => (
-                  <li key={denomination}>{`${count} x ${denomination}`}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        <ChangePopup
+          isOpen={isChangePopupOpen}
+          onClose={handleCloseChangePopup}
+          change={change}
+          changeDenominations={changeDenominations}
+        />
       )}
     </div>
   );

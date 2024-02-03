@@ -7,14 +7,23 @@ const Product = ({ id, name, price, stock, imageSrc, onClick }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [confirmedQuantity, setConfirmedQuantity] = useState(null);
+  const [localStock, setLocalStock] = useState(stock); // Local stock state
 
   const handleBuyClick = () => {
-    setShowPopup(true);
-    onClick(id, price, selectedQuantity);
+    if (localStock > 0) {
+      setShowPopup(true);
+    }
   };
 
   const handleConfirmBuy = () => {
+    // Update local stock
+    const updatedStock = localStock - selectedQuantity;
+    setLocalStock(updatedStock);
+
+    // Pass the purchase details to the parent component
     onClick(id, price, selectedQuantity);
+
+    // Update confirmed quantity and close the popup
     setConfirmedQuantity(selectedQuantity);
     setShowPopup(false);
   };
@@ -29,14 +38,13 @@ const Product = ({ id, name, price, stock, imageSrc, onClick }) => {
       <div className="product-details">
         <h3 className="product-name">{name}</h3>
         <p className="product-price">PHP{price}</p>
-        <p className="product-stock">Stock: {stock}</p>
         <button onClick={handleBuyClick} className="buy-button">Buy</button>
       </div>
 
       {showPopup && (
         <BuyPopup
           selectedQuantity={selectedQuantity}
-          maxQuantity={Math.min(stock, 5)} // Set the maximum quantity to the available stock or 5, whichever is smaller
+          maxQuantity={Math.min(localStock, 20)}
           onQuantityChange={setSelectedQuantity}
           onBuyConfirmed={handleConfirmBuy}
           onCancel={handleCancelBuy}
@@ -48,7 +56,7 @@ const Product = ({ id, name, price, stock, imageSrc, onClick }) => {
 
       {confirmedQuantity !== null && (
         <div>
-          <p>Total Amount Due: ${price * confirmedQuantity}</p>
+          <p>Total Amount Due: PHP{price * confirmedQuantity}</p>
           <button onClick={() => console.log("Proceed to Checkout")}>
             Proceed to Checkout
           </button>

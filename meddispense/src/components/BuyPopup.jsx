@@ -35,12 +35,12 @@ const BuyPopup = ({ selectedQuantity, maxQuantity, onQuantityChange, onCancel, p
       {/* Show Total Amount Due and Proceed to Checkout */}
       {selectedQuantity !== null && (
         <div>
-          <p>Total Amount Due: ${selectedQuantity * productPrice}</p>
-          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+          <p>Total Amount Due: PHP{selectedQuantity * productPrice}</p>
+          <button className='btn flex' onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </div>
       )}
 
-      <button onClick={onCancel}>Cancel</button>
+      <button className='btn flex'onClick={onCancel}>Cancel</button>
     </div>
   );
 };
